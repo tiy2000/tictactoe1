@@ -45,6 +45,11 @@ public class Board {
         return true;
     }
 
+    public PlayerSymbol getCellSymbol(int row, int col) {
+        cellPositionChecker.checkCellPositions(row, col);
+        return board[row - 1][col - 1];
+    }
+
     public void setCellSymbol(int row, int col, PlayerSymbol symbol) {
         cellPositionChecker.checkCellPositions(row, col);
         if (board[row - 1][col - 1] != PlayerSymbol.BLANK) {
