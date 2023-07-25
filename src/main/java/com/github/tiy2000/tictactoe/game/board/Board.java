@@ -4,7 +4,9 @@ import com.github.tiy2000.tictactoe.ui.Console;
 
 public class Board {
 
-    public static final int DEFAULT_SIZE = 3;
+    private static final int MIN_SIZE = 3;
+    private static final int MAX_SIZE = 5;
+    private static final int DEFAULT_SIZE = MIN_SIZE;
     private final int size;
     private final PlayerSymbol[][] board;
     private final WinnerChecker winnerChecker = new WinnerChecker();
@@ -16,6 +18,9 @@ public class Board {
     }
 
     public Board(int size, Console console) {
+        if (size < MIN_SIZE || size > MAX_SIZE) {
+            throw new IllegalArgumentException("Board size should be between " + MIN_SIZE + " and " + MAX_SIZE);
+        }
         this.size = size;
         board = new PlayerSymbol[size][size];
         this.console = console;
