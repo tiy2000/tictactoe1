@@ -1,4 +1,4 @@
-package com.github.tiy2000.tictactoe.game.board;
+package com.github.tiy2000.tictactoe.exception;
 
 public class InvalidCellPositionException extends RuntimeException {
 

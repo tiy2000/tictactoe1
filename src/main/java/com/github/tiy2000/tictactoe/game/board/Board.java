@@ -1,5 +1,6 @@
 package com.github.tiy2000.tictactoe.game.board;
 
+import com.github.tiy2000.tictactoe.exception.InvalidCellPositionException;
 import com.github.tiy2000.tictactoe.ui.Console;
 
 public class Board {
