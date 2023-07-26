@@ -14,4 +14,6 @@ public interface Console {
 
     int readInt();
 
+    int readInt(int min, int max);
+
 }

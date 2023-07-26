@@ -23,7 +23,8 @@ public class GameSet implements Game {
         console.println("Tic-Tac-Toe game");
         while (true) {
             printMenu();
-            int choice = inputUserChoice();
+            console.print("Make your choice: ");
+            int choice = console.readInt(1, EXIT_MENU_NUMBER);
 
             if (choice == EXIT_MENU_NUMBER) break;
 
@@ -46,19 +47,5 @@ public class GameSet implements Game {
         Arrays.stream(GameType.values())
                 .forEach(gameType -> console.println(gameType.ordinal() + 1 + ". " + gameType.description));
         console.println(EXIT_MENU_NUMBER + ". Exit");
-    }
-
-    private int inputUserChoice() {
-        int choice;
-        while (true) {
-            console.print("Make your choice: ");
-            choice = console.readInt();
-            if (choice < 1 || choice > EXIT_MENU_NUMBER) {
-                console.println("Invalid input! Type a number between 1 and " + EXIT_MENU_NUMBER);
-            } else {
-                break;
-            }
-        }
-        return choice;
     }
 }

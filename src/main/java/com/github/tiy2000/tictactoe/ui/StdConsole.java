@@ -21,4 +21,16 @@ public class StdConsole implements Console {
         }
         return value;
     }
+
+    @Override
+    public int readInt(int min, int max) {
+        while (true) {
+            int number = readInt();
+            if (number < min || number > max) {
+                print("Invalid input! Type a number between " + min + " and " + max + ": ");
+            } else {
+                return number;
+            }
+        }
+    }
 }
