@@ -21,14 +21,12 @@ public class GameRound implements Game {
 
     @Override
     public void play() {
-        console.println("Game is started");
         board.reset();
         board.print();
         while (true) {
             if (playerMove(console, board, player1)) break;
             if (playerMove(console, board, player2)) break;
         }
-        console.println("Game is finished");
     }
 
     private boolean playerMove(Console console, Board board, Player player) {

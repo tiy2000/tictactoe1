@@ -26,13 +26,20 @@ public class GameSet implements Game {
 
             if (choice == EXIT_MENU_NUMBER) break;
 
-            Game gameRound = gameRoundFactory.makeGameRound(GameType.values()[choice - 1]);
+            GameType choosenGameType = GameType.values()[choice - 1];
+
+            console.println("Game round '" + choosenGameType.description + "' started");
+
+            Game gameRound = gameRoundFactory.makeGameRound(choosenGameType);
             gameRound.play();
+
+            console.println("Game round '" + choosenGameType.description + "' finished");
         }
         console.println("By");
     }
 
     private void printMenu() {
+        console.println("----------------------------------------");
         console.println("Select game round type or exit the game:");
         Arrays.stream(GameType.values())
                 .forEach(gameType -> console.println(gameType.ordinal() + 1 + ". " + gameType.description));
