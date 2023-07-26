@@ -4,7 +4,7 @@ import com.github.tiy2000.tictactoe.game.board.Board;
 import com.github.tiy2000.tictactoe.game.player.Player;
 import com.github.tiy2000.tictactoe.ui.Console;
 
-public class GameRound {
+public class GameRound implements Game {
 
     private final Console console;
     private final Board board;
@@ -18,6 +18,7 @@ public class GameRound {
         this.player2 = player2;
     }
 
+    @Override
     public void play() {
         console.println("Game is started");
         board.reset();
