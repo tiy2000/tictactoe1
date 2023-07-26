@@ -9,14 +9,14 @@ public class GameRound implements Game {
 
     private final Console console;
     private final Board board;
-    private final Player player1;
-    private final Player player2;
+    private final Player playerX;
+    private final Player playerO;
 
-    public GameRound(Console console, Board board, Player player1, Player player2) {
+    public GameRound(Console console, Board board, Player playerX, Player playerO) {
         this.console = console;
         this.board = board;
-        this.player1 = player1;
-        this.player2 = player2;
+        this.playerX = playerX;
+        this.playerO = playerO;
     }
 
     @Override
@@ -24,8 +24,8 @@ public class GameRound implements Game {
         board.reset();
         board.print();
         while (true) {
-            if (playerMove(console, board, player1)) break;
-            if (playerMove(console, board, player2)) break;
+            if (playerMove(console, board, playerX)) break;
+            if (playerMove(console, board, playerO)) break;
         }
     }
 

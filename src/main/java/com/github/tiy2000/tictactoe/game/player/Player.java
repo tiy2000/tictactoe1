@@ -12,6 +12,6 @@ public interface Player {
     PlayerSymbol getSymbol();
 
     default String getDescription() {
-        return "Player " + getName() + " [" + getSymbol().value + "]";
+        return "Player [" + getSymbol().value + "] (" + getName() + ")";
     }
 }

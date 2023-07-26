@@ -8,6 +8,7 @@ import java.util.Arrays;
 
 public class GameSet implements Game {
 
+    private static final String DELIMITER_LINE = "--------------------------------------------------";
     private static final int EXIT_MENU_NUMBER = GameType.values().length + 1;
     private final Console console;
     private final GameRoundFactory gameRoundFactory;
@@ -28,6 +29,7 @@ public class GameSet implements Game {
 
             GameType choosenGameType = GameType.values()[choice - 1];
 
+            console.println(DELIMITER_LINE);
             console.println("Game round '" + choosenGameType.description + "' started");
 
             Game gameRound = gameRoundFactory.makeGameRound(choosenGameType);
@@ -39,7 +41,7 @@ public class GameSet implements Game {
     }
 
     private void printMenu() {
-        console.println("----------------------------------------");
+        console.println(DELIMITER_LINE);
         console.println("Select game round type or exit the game:");
         Arrays.stream(GameType.values())
                 .forEach(gameType -> console.println(gameType.ordinal() + 1 + ". " + gameType.description));
