@@ -4,14 +4,14 @@ import com.github.tiy2000.tictactoe.game.board.Board;
 import com.github.tiy2000.tictactoe.game.player.Player;
 import com.github.tiy2000.tictactoe.ui.Console;
 
-public class GameLogic {
+public class GameRound {
 
     private final Console console;
     private final Board board;
     private final Player player1;
     private final Player player2;
 
-    public GameLogic(Console console, Board board, Player player1, Player player2) {
+    public GameRound(Console console, Board board, Player player1, Player player2) {
         this.console = console;
         this.board = board;
         this.player1 = player1;

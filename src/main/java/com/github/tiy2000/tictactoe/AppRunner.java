@@ -1,6 +1,6 @@
 package com.github.tiy2000.tictactoe;
 
-import com.github.tiy2000.tictactoe.game.GameLogic;
+import com.github.tiy2000.tictactoe.game.GameRound;
 import com.github.tiy2000.tictactoe.game.board.Board;
 import com.github.tiy2000.tictactoe.game.board.PlayerSymbol;
 import com.github.tiy2000.tictactoe.game.player.computer.random.ComputerRandomPlayer;
@@ -18,8 +18,8 @@ public class AppRunner {
         Player player1 = new HumanPlayer("John", PlayerSymbol.X, console);
         Player player2 = new ComputerRandomPlayer(PlayerSymbol.O, console);
 
-        GameLogic gameLogic = new GameLogic(console, board, player1, player2);
+        GameRound gameRound = new GameRound(console, board, player1, player2);
 
-        gameLogic.play();
+        gameRound.play();
     }
 }
