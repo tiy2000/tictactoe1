@@ -20,6 +20,7 @@ public class GameLogic {
 
     public void play() {
         console.println("Game is started");
+        board.reset();
         board.print();
         while (true) {
             if (playerMove(console, board, player1)) break;
