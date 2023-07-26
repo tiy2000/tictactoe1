@@ -1,7 +1,7 @@
 package com.github.tiy2000.tictactoe;
 
 import com.github.tiy2000.tictactoe.game.Game;
-import com.github.tiy2000.tictactoe.game.GameRound;
+import com.github.tiy2000.tictactoe.game.gameround.GameRound;
 import com.github.tiy2000.tictactoe.game.board.Board;
 import com.github.tiy2000.tictactoe.game.board.PlayerSymbol;
 import com.github.tiy2000.tictactoe.game.player.Player;
