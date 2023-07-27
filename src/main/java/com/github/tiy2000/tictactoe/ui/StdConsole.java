@@ -13,24 +13,15 @@ public class StdConsole implements Console {
 
     @Override
     public int readInt() {
-        int value;
         try {
-            value = Integer.parseInt(scanner.next());
+            return Integer.parseInt(scanner.next());
         } catch (Exception e) {
-            value = -1;
+            return INVALID_NUMBER_SPECIAL_VALUE;
         }
-        return value;
     }
 
     @Override
-    public int readInt(int min, int max) {
-        while (true) {
-            int number = readInt();
-            if (number < min || number > max) {
-                print("Invalid input! Type a number between " + min + " and " + max + ": ");
-            } else {
-                return number;
-            }
-        }
+    public String readString() {
+        return scanner.nextLine();
     }
 }
