@@ -22,6 +22,12 @@ public class StdConsole implements Console {
 
     @Override
     public String readString() {
+        if (scanner.hasNextLine()) {
+            String line = scanner.nextLine();
+            if (!line.isEmpty()) {
+                return line;
+            }
+        }
         return scanner.nextLine();
     }
 }
