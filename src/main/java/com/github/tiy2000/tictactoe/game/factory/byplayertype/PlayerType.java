@@ -1,4 +1,4 @@
-package com.github.tiy2000.tictactoe.game.gameset;
+package com.github.tiy2000.tictactoe.game.factory.byplayertype;
 
 public enum PlayerType {
 
@@ -9,5 +9,10 @@ public enum PlayerType {
 
     PlayerType(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return description;
     }
 }

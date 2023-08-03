@@ -1,8 +1,8 @@
 package com.github.tiy2000.tictactoe.game.player.computer.random;
 
 import com.github.tiy2000.tictactoe.game.board.Board;
-import com.github.tiy2000.tictactoe.game.exception.InvalidCellPositionException;
 import com.github.tiy2000.tictactoe.game.board.PlayerSymbol;
+import com.github.tiy2000.tictactoe.game.exception.InvalidCellPositionException;
 import com.github.tiy2000.tictactoe.game.player.AbstractPlayer;
 import com.github.tiy2000.tictactoe.ui.Console;
 
