@@ -20,11 +20,6 @@ public class ConsoleMenu {
         return this;
     }
 
-    public ConsoleMenu withItems(String[] items) {
-        this.items.addAll(Arrays.asList(items));
-        return this;
-    }
-
     public ConsoleMenu withItems(List<String> items) {
         this.items.addAll(items);
         return this;
@@ -38,6 +33,18 @@ public class ConsoleMenu {
     public ConsoleMenu withPrompt(String prompt) {
         this.prompt = prompt;
         return this;
+    }
+
+    public ConsoleMenu withEnum(Class<? extends Enum<?>> enumClass) {
+        return withItems(Arrays.stream(enumClass.getEnumConstants()).map(Enum::toString).toList());
+    }
+
+    public ConsoleMenu withExitItem() {
+        return withItem("Exit");
+    }
+
+    public int getItemsCount() {
+        return items.size();
     }
 
     public int readChoice() {
