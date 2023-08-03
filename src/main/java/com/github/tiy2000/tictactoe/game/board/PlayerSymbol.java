@@ -1,5 +1,8 @@
 package com.github.tiy2000.tictactoe.game.board;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 public enum PlayerSymbol {
 
     X("X"),
@@ -7,8 +10,4 @@ public enum PlayerSymbol {
     BLANK("*");
 
     public final String value;
-
-    PlayerSymbol(String value) {
-        this.value = value;
-    }
 }

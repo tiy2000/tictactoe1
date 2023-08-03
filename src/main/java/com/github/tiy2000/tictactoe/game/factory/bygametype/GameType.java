@@ -1,5 +1,8 @@
 package com.github.tiy2000.tictactoe.game.factory.bygametype;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 public enum GameType {
 
     HUMAN_VS_HUMAN("Human [X] vs human [O]"),
@@ -8,10 +11,6 @@ public enum GameType {
     COMPUTER_VS_COMPUTER("Computer [X] vs computer [O]");
 
     public final String description;
-
-    GameType(String description) {
-        this.description = description;
-    }
 
     @Override
     public String toString() {

@@ -4,20 +4,15 @@ import com.github.tiy2000.tictactoe.game.Game;
 import com.github.tiy2000.tictactoe.game.board.Board;
 import com.github.tiy2000.tictactoe.game.player.Player;
 import com.github.tiy2000.tictactoe.ui.Console;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 public class GameRound implements Game {
 
     private final Console console;
     private final Board board;
     private final Player playerX;
     private final Player playerO;
-
-    public GameRound(Console console, Board board, Player playerX, Player playerO) {
-        this.console = console;
-        this.board = board;
-        this.playerX = playerX;
-        this.playerO = playerO;
-    }
 
     @Override
     public void play() {

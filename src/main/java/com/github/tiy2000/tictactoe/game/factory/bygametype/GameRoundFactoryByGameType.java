@@ -10,16 +10,14 @@ import com.github.tiy2000.tictactoe.game.player.computer.random.ComputerRandomPl
 import com.github.tiy2000.tictactoe.game.player.human.HumanPlayer;
 import com.github.tiy2000.tictactoe.ui.Console;
 import com.github.tiy2000.tictactoe.ui.ConsoleMenu;
+import lombok.RequiredArgsConstructor;
 
 import java.util.Optional;
 
+@RequiredArgsConstructor
 public class GameRoundFactoryByGameType implements GameRoundFactory {
 
     private final Console console;
-
-    public GameRoundFactoryByGameType(Console console) {
-        this.console = console;
-    }
 
     @Override
     public Optional<Game> createGameRound() {

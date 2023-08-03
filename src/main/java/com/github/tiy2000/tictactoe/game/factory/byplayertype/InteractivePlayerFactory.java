@@ -6,16 +6,14 @@ import com.github.tiy2000.tictactoe.game.player.computer.random.ComputerRandomPl
 import com.github.tiy2000.tictactoe.game.player.human.HumanPlayer;
 import com.github.tiy2000.tictactoe.ui.Console;
 import com.github.tiy2000.tictactoe.ui.ConsoleMenu;
+import lombok.RequiredArgsConstructor;
 
 import java.util.Optional;
 
+@RequiredArgsConstructor
 public class InteractivePlayerFactory {
 
     private final Console console;
-
-    public InteractivePlayerFactory(Console console) {
-        this.console = console;
-    }
 
     public Optional<Player> createPlayer(PlayerSymbol symbol) {
         ConsoleMenu menu = new ConsoleMenu(console)
