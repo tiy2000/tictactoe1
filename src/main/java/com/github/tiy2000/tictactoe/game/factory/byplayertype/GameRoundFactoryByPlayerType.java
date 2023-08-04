@@ -13,10 +13,13 @@ import java.util.Optional;
 public class GameRoundFactoryByPlayerType implements GameRoundFactory {
 
     private final Console console;
+    private final Board board;
+
     private final InteractivePlayerFactory playerFactory;
 
-    public GameRoundFactoryByPlayerType(Console console) {
+    public GameRoundFactoryByPlayerType(Console console, Board board) {
         this.console = console;
+        this.board = board;
         this.playerFactory = new InteractivePlayerFactory(console);
     }
 
@@ -26,7 +29,7 @@ public class GameRoundFactoryByPlayerType implements GameRoundFactory {
         if (playerX.isEmpty()) return Optional.empty();
 
         Optional<Player> playerO = playerFactory.createPlayer(PlayerSymbol.O);
-        return playerO.map(player -> new GameRound(console, new Board(console), playerX.get(), player));
+        return playerO.map(player -> new GameRound(console, board, playerX.get(), player));
 
     }
 }

@@ -2,12 +2,14 @@ package com.github.tiy2000.tictactoe.game.board;
 
 import com.github.tiy2000.tictactoe.game.exception.InvalidCellPositionException;
 import com.github.tiy2000.tictactoe.ui.Console;
+import lombok.Getter;
 
 public class Board {
 
-    private static final int MIN_SIZE = 3;
-    private static final int MAX_SIZE = 5;
-    private static final int DEFAULT_SIZE = MIN_SIZE;
+    public static final int MIN_SIZE = 3;
+    public static final int MAX_SIZE = 5;
+    public static final int DEFAULT_SIZE = MIN_SIZE;
+    @Getter
     private final int size;
     private final PlayerSymbol[][] board;
     private final WinnerChecker winnerChecker = new WinnerChecker();
@@ -26,10 +28,6 @@ public class Board {
         board = new PlayerSymbol[size][size];
         this.console = console;
         reset();
-    }
-
-    public int getSize() {
-        return size;
     }
 
     public void reset() {

@@ -18,6 +18,7 @@ import java.util.Optional;
 public class GameRoundFactoryByGameType implements GameRoundFactory {
 
     private final Console console;
+    private final Board board;
 
     @Override
     public Optional<Game> createGameRound() {
@@ -51,6 +52,6 @@ public class GameRoundFactoryByGameType implements GameRoundFactory {
                 playerO = new ComputerRandomPlayer(PlayerSymbol.O, console);
             }
         }
-        return Optional.of(new GameRound(console, new Board(console), playerX, playerO));
+        return Optional.of(new GameRound(console, board, playerX, playerO));
     }
 }

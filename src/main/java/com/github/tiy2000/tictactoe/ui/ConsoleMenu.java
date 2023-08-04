@@ -43,6 +43,11 @@ public class ConsoleMenu {
         return withItem("Exit");
     }
 
+    public ConsoleMenu updateItem(int index, String text) {
+        items.set(index, text);
+        return this;
+    }
+
     public int getItemsCount() {
         return items.size();
     }
