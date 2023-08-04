@@ -12,22 +12,27 @@ public class Board {
     @Getter
     private final int size;
     private final PlayerSymbol[][] board;
-    private final WinnerChecker winnerChecker = new WinnerChecker();
-    private final CellPositionChecker cellPositionChecker = new CellPositionChecker();
+    private final WinnerChecker winnerChecker;
+    private final CellPositionChecker cellPositionChecker;
+
     private final Console console;
 
     public Board(Console console) {
-        this(DEFAULT_SIZE, console);
+        this(console, DEFAULT_SIZE);
     }
 
-    public Board(int size, Console console) {
+    public Board(Console console, int size) {
         if (size < MIN_SIZE || size > MAX_SIZE) {
             throw new IllegalArgumentException("Board size should be between " + MIN_SIZE + " and " + MAX_SIZE);
         }
         this.size = size;
-        board = new PlayerSymbol[size][size];
         this.console = console;
+
+        board = new PlayerSymbol[size][size];
         reset();
+
+        winnerChecker = new WinnerChecker(board);
+        cellPositionChecker = new CellPositionChecker(board);
     }
 
     public void reset() {
@@ -73,52 +78,5 @@ public class Board {
 
     public boolean isWinner(PlayerSymbol symbol) {
         return winnerChecker.isWinner(symbol);
-    }
-
-
-    private class CellPositionChecker {
-        public void checkCellPositions(int row, int col) {
-            checkPosition(row, "Row");
-            checkPosition(col, "Column");
-        }
-
-        private void checkPosition(int position, String target) throws IllegalArgumentException {
-            if (position < 1 || position > size) {
-                throw new InvalidCellPositionException(makeErrorMsg(target));
-            }
-        }
-
-        private String makeErrorMsg(String target) {
-            return target + " should be a number between 1 and " + size;
-        }
-    }
-
-
-    private class WinnerChecker {
-        private boolean isWinner(PlayerSymbol symbol) {
-            for (int i = 0; i < size; i++) {
-                if (isRowFilled(i, symbol) || isColFilled(i, symbol)) {
-                    return true;
-                }
-            }
-            return isLineFilled(0, 1, 0, 1, symbol) || isLineFilled(0, 1, size - 1, -1, symbol);
-        }
-
-        private boolean isRowFilled(int row, PlayerSymbol symbol) {
-            return isLineFilled(row, 0, 0, 1, symbol);
-        }
-
-        private boolean isColFilled(int col, PlayerSymbol symbol) {
-            return isLineFilled(0, 1, col, 0, symbol);
-        }
-
-        private boolean isLineFilled(int rowBegin, int rowStep, int colBegin, int colStep, PlayerSymbol symbol) {
-            for (int i = 0, row = rowBegin, col = colBegin; i < size; i++, row += rowStep, col += colStep) {
-                if (board[row][col] != symbol) {
-                    return false;
-                }
-            }
-            return true;
-        }
     }
 }

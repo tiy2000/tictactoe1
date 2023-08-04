@@ -27,14 +27,18 @@ public class GameRoundFactoryByGameType implements GameRoundFactory {
                 .withEnum(GameType.class)
                 .withExitItem();
         int choice = menu.readChoice();
-
         if (choice == menu.getItemsCount()) {
             return Optional.empty();
         }
+        GameType gameType = GameType.values()[choice - 1];
 
+        return createGameRound(gameType);
+    }
+
+    private Optional<Game> createGameRound(GameType gameType) {
         Player playerX = null;
         Player playerO = null;
-        switch (GameType.values()[choice - 1]) {
+        switch (gameType) {
             case HUMAN_VS_HUMAN -> {
                 playerX = new HumanPlayer("Human X", PlayerSymbol.X, console);
                 playerO = new HumanPlayer("Human O", PlayerSymbol.O, console);

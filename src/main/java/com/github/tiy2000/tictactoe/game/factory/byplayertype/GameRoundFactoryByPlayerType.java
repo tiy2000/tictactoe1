@@ -30,6 +30,5 @@ public class GameRoundFactoryByPlayerType implements GameRoundFactory {
 
         Optional<Player> playerO = playerFactory.createPlayer(PlayerSymbol.O);
         return playerO.map(player -> new GameRound(console, board, playerX.get(), player));
-
     }
 }

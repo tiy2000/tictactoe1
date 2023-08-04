@@ -27,17 +27,18 @@ public class InteractivePlayerFactory {
         }
         PlayerType playerType = PlayerType.values()[choice - 1];
         String playerName = inputPlayerName(playerType);
-        return Optional.of(makePlayer(playerType, playerName, symbol));
+
+        return Optional.of(createPlayer(playerType, playerName, symbol));
     }
 
-    private String inputPlayerName(PlayerType playerType) {
-        return console.readString("Enter player's name", playerType.description);
-    }
-
-    private Player makePlayer(PlayerType playerType, String playerName, PlayerSymbol symbol) {
+    private Player createPlayer(PlayerType playerType, String playerName, PlayerSymbol symbol) {
         return switch (playerType) {
             case HUMAN -> new HumanPlayer(playerName, symbol, console);
             case COMPUTER_RANDOM -> new ComputerRandomPlayer(playerName, symbol, console);
         };
+    }
+
+    private String inputPlayerName(PlayerType playerType) {
+        return console.readString("Enter player's name", playerType.description);
     }
 }

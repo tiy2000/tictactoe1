@@ -38,15 +38,20 @@ public class GameSet implements Game {
                 menu.updateItem(menu.getItemsCount() - 2, makeChangeGameBoardSizeMenuItem(board));
                 continue;
             }
-            Optional<Game> maybeGame = switch (GameSetType.values()[choice - 1]) {
-                case GAME_SET_WITH_GAME_TYPE -> new GameRoundFactoryByGameType(console, board).createGameRound();
-                case GAME_SET_WITH_PLAYER_TYPE -> new GameRoundFactoryByPlayerType(console, board).createGameRound();
+            GameSetType gameSetType = GameSetType.values()[choice - 1];
+            Optional<Game> maybeGame = createGameSet(gameSetType, board);
 
-            };
             maybeGame.ifPresent(this::playTheGame);
         }
-
         console.println("By");
+    }
+
+    private Optional<Game> createGameSet(GameSetType gameSetType, Board board) {
+        return switch (gameSetType) {
+            case GAME_SET_WITH_GAME_TYPE -> new GameRoundFactoryByGameType(console, board).createGameRound();
+            case GAME_SET_WITH_PLAYER_TYPE -> new GameRoundFactoryByPlayerType(console, board).createGameRound();
+
+        };
     }
 
     private static String makeChangeGameBoardSizeMenuItem(Board board) {
@@ -56,7 +61,7 @@ public class GameSet implements Game {
     private Board createBoardInteractive() {
         console.print("Enter game border size [" + Board.MIN_SIZE + "-" + Board.MAX_SIZE + "]: ");
         int boardSize = console.readInt(Board.MIN_SIZE, Board.MAX_SIZE);
-        return new Board(boardSize, console);
+        return new Board(console, boardSize);
     }
 
     private void playTheGame(Game game) {
