@@ -4,6 +4,8 @@ import com.github.tiy2000.tictactoe.game.exception.InvalidCellPositionException;
 import com.github.tiy2000.tictactoe.ui.Console;
 import lombok.Getter;
 
+import java.util.Arrays;
+
 public class Board {
 
     public static final int MIN_SIZE = 3;
@@ -37,9 +39,7 @@ public class Board {
 
     public void reset() {
         for (PlayerSymbol[] playerSymbols : board) {
-            for (int i = 0; i < size; i++) {
-                playerSymbols[i] = PlayerSymbol.BLANK;
-            }
+            Arrays.fill(playerSymbols, PlayerSymbol.BLANK);
         }
     }
 
