@@ -2,6 +2,8 @@ package com.github.tiy2000.tictactoe.game.factory.byplayertype;
 
 import com.github.tiy2000.tictactoe.game.board.PlayerSymbol;
 import com.github.tiy2000.tictactoe.game.player.Player;
+import com.github.tiy2000.tictactoe.game.player.computer.ai.v1.ComputerAIPlayer1;
+import com.github.tiy2000.tictactoe.game.player.computer.ai.v2.ComputerAIPlayer2;
 import com.github.tiy2000.tictactoe.game.player.computer.random.ComputerRandomPlayer;
 import com.github.tiy2000.tictactoe.game.player.human.HumanPlayer;
 import com.github.tiy2000.tictactoe.ui.Console;
@@ -35,6 +37,8 @@ public class InteractivePlayerFactory {
         return switch (playerType) {
             case HUMAN -> new HumanPlayer(playerName, symbol, console);
             case COMPUTER_RANDOM -> new ComputerRandomPlayer(playerName, symbol, console);
+            case COMPUTER_AI_1 -> new ComputerAIPlayer1(playerName, symbol, console);
+            case COMPUTER_AI_2 -> new ComputerAIPlayer2(playerName, symbol, console);
         };
     }
 

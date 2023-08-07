@@ -6,9 +6,9 @@ import lombok.RequiredArgsConstructor;
 public enum GameType {
 
     HUMAN_VS_HUMAN("Human [X] vs human [O]"),
-    HUMAN_VS_COMPUTER("Human [X] vs computer [O]"),
-    COMPUTER_VS_HUMAN("Computer [X] vs human [O]"),
-    COMPUTER_VS_COMPUTER("Computer [X] vs computer [O]");
+    HUMAN_VS_COMPUTER("Human [X] vs computer-random [O]"),
+    COMPUTER_VS_HUMAN("Computer-random [X] vs human [O]"),
+    COMPUTER_VS_COMPUTER("Computer-random [X] vs computer-random [O]");
 
     public final String description;
 

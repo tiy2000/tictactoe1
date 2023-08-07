@@ -1,6 +1,5 @@
 package com.github.tiy2000.tictactoe.game.player.human;
 
-import com.github.tiy2000.tictactoe.game.board.Board;
 import com.github.tiy2000.tictactoe.game.board.PlayerSymbol;
 import com.github.tiy2000.tictactoe.game.exception.InvalidCellPositionException;
 import com.github.tiy2000.tictactoe.game.player.AbstractPlayer;
@@ -17,7 +16,7 @@ public class HumanPlayer extends AbstractPlayer {
     }
 
     @Override
-    public void move(Board board) {
+    public void move() {
         while (true) {
             int row = console.readInt();
             int col = console.readInt();

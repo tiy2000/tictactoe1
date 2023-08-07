@@ -6,7 +6,9 @@ import lombok.RequiredArgsConstructor;
 public enum PlayerType {
 
     HUMAN("Human"),
-    COMPUTER_RANDOM("Computer-random-choice");
+    COMPUTER_RANDOM("Computer-random"),
+    COMPUTER_AI_1("Computer-AI-v1"),
+    COMPUTER_AI_2("Computer-AI-v2");
 
     public final String description;
 

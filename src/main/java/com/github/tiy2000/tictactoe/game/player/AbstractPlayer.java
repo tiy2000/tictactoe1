@@ -1,5 +1,6 @@
 package com.github.tiy2000.tictactoe.game.player;
 
+import com.github.tiy2000.tictactoe.game.board.Board;
 import com.github.tiy2000.tictactoe.game.board.PlayerSymbol;
 import com.github.tiy2000.tictactoe.ui.Console;
 import lombok.Getter;
@@ -15,4 +16,11 @@ public abstract class AbstractPlayer implements Player {
     protected final PlayerSymbol symbol;
 
     protected final Console console;
+
+    protected Board board;
+
+    @Override
+    public void init(Board board) {
+        this.board = board;
+    }
 }

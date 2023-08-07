@@ -13,8 +13,6 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class GameSet implements Game {
 
-    private static final String DELIMITER_LINE = "-".repeat(40);
-
     private final Console console;
 
     @Override
@@ -41,7 +39,7 @@ public class GameSet implements Game {
             GameSetType gameSetType = GameSetType.values()[choice - 1];
             Optional<Game> maybeGame = createGameSet(gameSetType, board);
 
-            maybeGame.ifPresent(this::playTheGame);
+            maybeGame.ifPresent(Game::play);
         }
         console.println("By");
     }
@@ -50,7 +48,6 @@ public class GameSet implements Game {
         return switch (gameSetType) {
             case GAME_SET_WITH_GAME_TYPE -> new GameRoundFactoryByGameType(console, board).createGameRound();
             case GAME_SET_WITH_PLAYER_TYPE -> new GameRoundFactoryByPlayerType(console, board).createGameRound();
-
         };
     }
 
@@ -64,11 +61,4 @@ public class GameSet implements Game {
         return new Board(console, boardSize);
     }
 
-    private void playTheGame(Game game) {
-        console.println(DELIMITER_LINE);
-        console.println("Game round started");
-        game.play();
-        console.println("Game round finished");
-        console.println(DELIMITER_LINE);
-    }
 }

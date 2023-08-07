@@ -5,7 +5,10 @@ import com.github.tiy2000.tictactoe.game.board.PlayerSymbol;
 
 public interface Player {
 
-    void move(Board board);
+    default void init(Board board) {
+    }
+
+    void move();
 
     String getName();
 
