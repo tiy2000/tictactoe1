@@ -29,7 +29,6 @@ public class ComputerAIPlayer1 extends AbstractComputerPlayer {
     @Override
     protected Position getPosition() {
         Position position;
-//        if (isJustBegan && symbol == PlayerSymbol.X) {
         if (isJustBegan && board.isCellBlank(createCenterPosition())) {
             position = createCenterPosition();
             isJustBegan = false;
@@ -38,7 +37,6 @@ public class ComputerAIPlayer1 extends AbstractComputerPlayer {
         }
         return position;
     }
-
 
     private Position createBestPosition() {
         List<Position> positions = getAlmostWinPositions(symbol);
@@ -51,12 +49,10 @@ public class ComputerAIPlayer1 extends AbstractComputerPlayer {
             }
         }
         if (positions.isEmpty()) {
-            console.println("\n*********** JUST FOR DEBUG: RANDOM POSITION **********");
             return createRandomPosition();
         }
         return positions.get(0);
     }
-
 
     private List<Position> getAlmostWinPositions(PlayerSymbol symbol) {
         return getAlmostWinPositions(symbol, 1);
@@ -75,14 +71,6 @@ public class ComputerAIPlayer1 extends AbstractComputerPlayer {
 
         checkAlmostWinLinePosition(1, 1, 1, 1, symbol, freeCellNumber, positions);
         checkAlmostWinLinePosition(1, 1, board.getSize(), -1, symbol, freeCellNumber, positions);
-
-        System.out.println();
-        positions.stream()
-                .collect(Collectors.groupingBy(
-                        Function.identity(),
-                        Collectors.counting()
-                ))
-                .forEach((key, value) -> System.out.println(key + " : " + value));
 
         positions = positions.stream()
                 .collect(Collectors.groupingBy(
